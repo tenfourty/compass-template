@@ -90,6 +90,36 @@ Communications drafter that learns your voice. Creates messages for Slack, email
 
 Key commands: `/draft:setup`, `/draft:draft`, `/draft:restyle`
 
+## Multi-Agent Teams
+
+Compass includes a built-in multi-agent team for the Chief of Staff plugin. Three persistent agents run in separate tmux panes, each specialising in a different domain.
+
+### CoS Team (`/cos-boot`, `/cos-focus`, `/cos-shutdown`)
+
+| Agent | Role | Owns |
+|-------|------|------|
+| **ops** | Daily operations, tasks, accountability | `/cos:briefing`, `/cos:todos`, `/cos:status`, `/cos:decision` |
+| **briefer** | Meeting lifecycle — prep and debrief | `/cos:prep`, `/cos:debrief` |
+| **advisor** | Strategic advisory, coaching, patterns | `/cos:review`, `/cos:coach`, `/cos:blindspots`, `/cos:culture`, `/cos:codify`, `/cos:supergoal` |
+
+```
+/cos-boot              — spawn all 3 agents in a tmux layout
+/cos-focus <agent>     — spotlight ops, briefer, or advisor (resize panes)
+/cos-focus reset       — restore default layout
+/cos-shutdown          — graceful shutdown, persist state to kbx
+```
+
+The agents coordinate automatically — ops delegates meeting work to briefer, flags patterns to advisor, and synthesises their input. Each agent reads and writes to the shared kbx knowledge base so context survives across sessions.
+
+**Layout (default):**
+```
+┌───────────────┬──────────┐
+│               │ briefer  │
+│  ops (~45%)   ├──────────┤
+│               │ advisor  │
+└───────────────┴──────────┘
+```
+
 ## Guides
 
 - [Writing CLAUDE.md files](docs/guides/writing-claude-md.md) — how to structure CLAUDE.md for maximum agent effectiveness (synthesised from HumanLayer, Vercel's eval findings, and production patterns)

@@ -25,15 +25,22 @@ It combines:
 ```bash
 git clone https://github.com/YOUR_USERNAME/compass-template.git my-compass
 cd my-compass
+bash setup.sh
+```
+
+The setup script installs kbx (with semantic search and embeddings), builds the search index, registers the plugin marketplace, and installs the Claude Code plugins.
+
+Then open Claude Code:
+
+```bash
 claude
 ```
 
-Claude will detect that kbx isn't installed yet and walk you through:
+Claude will detect it's a fresh install and guide you through:
 
-1. Installing kbx and building the search index
-2. Installing the Claude Code plugins
-3. Running `/cos:setup` to connect your task manager, calendar, and chat tools
-4. Optionally setting up the coach (`/ig:setup`) and drafter (`/draft:setup`)
+1. Setting your name in `kbx.toml`
+2. Running `/cos:setup` to connect your task manager, calendar, and chat tools
+3. Optionally setting up the coach (`/ig:setup`) and drafter (`/draft:setup`)
 
 ## How It Works
 

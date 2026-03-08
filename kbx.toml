@@ -1,0 +1,13 @@
+# kbx configuration — all paths relative to this file (portable).
+# See: https://github.com/tenfourty/kbx
+
+[sources]
+meetings = "memory/meetings"
+memory = "memory"
+
+[data]
+dir = "kbx-data"
+
+[user]
+# Set your name here — used for entity matching and meeting attribution.
+# name = "Your Name"

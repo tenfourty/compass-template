@@ -1,0 +1,50 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[SessionStart:startup]'; if command -v kbx >/dev/null 2>&1; then kbx --help && kbx context && kbx me --json; else echo '[kbx not installed] Run: uv tool install \"kbx[search]\" && kbx index run'; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[SessionStart:clear]'; if command -v kbx >/dev/null 2>&1; then kbx --help && kbx context && kbx me --json; else echo '[kbx not installed] Run: uv tool install \"kbx[search]\" && kbx index run'; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[SessionStart:compact]'; if command -v kbx >/dev/null 2>&1; then kbx context && kbx me --json; else echo '[kbx not installed]'; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[SessionStart:resume]'; if command -v kbx >/dev/null 2>&1; then echo 'hook success: Success'; else echo '[kbx not installed]'; fi"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(kbx *)",
+      "Bash(uv tool install *)",
+      "Bash(uv tool update-shell)",
+      "Bash(python3 *)"
+    ]
+  }
+}

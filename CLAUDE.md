@@ -44,16 +44,22 @@ During `/cos:setup`, Claude will:
 
 ### Knowledge Base (kbx)
 
-`kbx` is the primary interface for reading and writing memory. Run `kbx --help` for the full command reference.
+**Always use `kbx` as the primary interface** for reading and writing memory — run `kbx --help` for the full command reference. Prefer kbx over raw `Read`/`Write`/`Edit` on memory files.
 
 **Key commands:**
 - `kbx context` — load pinned docs and KB summary (auto-injected via SessionStart hook)
 - `kbx search "query"` — hybrid search across all indexed content
-- `kbx view <path>` — read a specific file
-- `kbx note edit <target> --body "content"` / `--append "content"` — edit notes
-- `kbx memory add "title" --body "..." --tags t1,t2` — create new notes
+- `kbx view <path> --plain` — read a specific file (preferred over `Read` tool)
+- `kbx note edit <target> --body "content"` / `--append "content"` / `--tags t1,t2` / `--pin` / `--unpin` — edit notes (preferred over `Edit` tool)
+- `kbx memory add "title" --body "..." --tags t1,t2 --pin` — create new notes (preferred over `Write` tool)
 - `kbx entity find "name"` — look up a person or project
 - `kbx index run` — reindex after manual file edits
+
+Operations kbx can't do yet (use raw file edits for these):
+- **Update company context** → Edit `memory/context/company.md`
+- **Create/update decision logs** → Edit files in `memory/decisions/` directly
+
+After any direct file edits, changed memory files are auto-detected and re-indexed on next `kbx search` or `kbx context`.
 
 ### Memory Structure
 
@@ -108,8 +114,19 @@ Update this section so Claude adapts to your style:
 - **Working hours:** (e.g., 09:00-18:00 Mon-Fri)
 - **Working pattern:** (e.g., in-office Tue-Thu, remote Mon/Fri)
 
+### Indexing
+
+- **macOS (Apple Silicon):** `kbx index run` (incremental, uses MPS GPU — do NOT pass `--cpu`)
+- **Linux / other:** `kbx index run --no-embed` (FTS only, no GPU required)
+- Indexing is incremental — only new/changed docs are processed
+- Meeting sync (if configured): `kbx sync <source> --since 7d`
+
 ### Configuration
 
 - **kbx:** `kbx.toml` (project-local, relative paths). Data in `kbx-data/`.
 - **Global fallback:** `~/.config/kbx/config.toml` (absolute paths, for running kbx from any directory).
 - **Scripts:** `scripts/` — automation scripts (sync, cron jobs). See `scripts/README.md` for ideas.
+
+### Guides
+
+- [Writing CLAUDE.md files](docs/guides/writing-claude-md.md) — how to write effective CLAUDE.md files for Claude Code projects

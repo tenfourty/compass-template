@@ -90,6 +90,10 @@ Communications drafter that learns your voice. Creates messages for Slack, email
 
 Key commands: `/draft:setup`, `/draft:draft`, `/draft:restyle`
 
+## Guides
+
+- [Writing CLAUDE.md files](docs/guides/writing-claude-md.md) — how to structure CLAUDE.md for maximum agent effectiveness (synthesised from HumanLayer, Vercel's eval findings, and production patterns)
+
 ## Contributing
 
 This is a template — fork it, make it yours. If you find improvements that would help everyone, PRs are welcome.

@@ -40,7 +40,7 @@ Claude will detect it's a fresh install and guide you through:
 
 1. Setting your name in `kbx.toml`
 2. Running `/cos:setup` to connect your task manager, calendar, and chat tools
-3. Optionally setting up the coach (`/ig:setup`) and drafter (`/draft:setup`)
+3. Optionally setting up the coach (`/inner-game:setup`) and drafter (`/draft:setup`)
 
 ## How It Works
 
@@ -78,11 +78,11 @@ Your AI operations partner. Handles meeting lifecycle (prep → attend → debri
 
 Key commands: `/cos:setup`, `/cos:briefing`, `/cos:prep`, `/cos:debrief`, `/cos:todos`
 
-### Inner Game (`/ig:*`)
+### Inner Game (`/inner-game:*`)
 
 Personal life coach based on Tim Gallwey's Inner Game framework. Coaching conversations, daily journaling, identity work (The Document), and life domain assessment.
 
-Key commands: `/ig:setup`, `/ig:morning`, `/ig:evening`, `/ig:session`, `/ig:document`
+Key commands: `/inner-game:setup`, `/inner-game:morning`, `/inner-game:evening`, `/inner-game:session`, `/inner-game:document`
 
 ### Draft (`/draft:*`)
 

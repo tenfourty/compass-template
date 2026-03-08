@@ -30,7 +30,7 @@ name = "Your Name"
 After restarting Claude in this directory, run these setup commands:
 
 - `/cos:setup` — Chief of Staff: discovers your task manager, calendar, chat, and email tools. Configures connected sources. Creates pinned docs. Falls back to `tasks.md` if no task tool is available.
-- `/ig:setup` — Inner Game (optional): creates coaching identity and journal structure.
+- `/inner-game:setup` — Inner Game (optional): creates coaching identity and journal structure.
 - `/draft:setup` — Draft (optional): creates voice profile for message drafting.
 
 During `/cos:setup`, Claude will:
@@ -74,8 +74,8 @@ memory/
 ├── draft/       # Draft plugin voice files (created by /draft:setup)
 ├── priorities/  # Current priorities and focus areas
 ├── rhythms/     # Recurring cadences and rituals
-├── journal/     # Inner-game journal entries (created by /ig:setup)
-├── coaching/    # Inner-game coaching files (created by /ig:setup)
+├── journal/     # Inner-game journal entries (created by /inner-game:setup)
+├── coaching/    # Inner-game coaching files (created by /inner-game:setup)
 └── glossary.md  # Acronyms and jargon
 ```
 

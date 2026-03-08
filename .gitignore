@@ -4,6 +4,9 @@ kbx-data/
 # Logs
 scripts/logs/
 
+# Claude Code local settings (personal permissions, not for sharing)
+.claude/settings.local.json
+
 # Environment
 .env
 .env.*
@@ -12,6 +15,16 @@ scripts/logs/
 __pycache__/
 *.pyc
 *.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets
+*.secret
 
 # IDE
 .idea/
